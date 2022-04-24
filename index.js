@@ -1,22 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express();
 const port = process.env.PORT || 4000;
 
 
 app.use(express.json());
 app.use(cors());
-
-
-
-//user:mongoUser
-//pass: r7GtDNNpFihatoXv
-
-
-
-
 
 app.get('/', (req, res) => {
     res.send('Hello from root')
@@ -46,6 +37,26 @@ async function run() {
             const result = await productCollection.insertOne(product);
             res.send(result);
         })
+
+        //to delete one product from database
+        app.delete("/products/:productId", async (req, res) => {
+            const id = req.params.productId;
+            const query = { _id: ObjectId(id) };
+            const deletedProduct = await productCollection.deleteOne(query);
+            res.send(deletedProduct);
+        })
+
+        //to update one product from database
+        // app.put("/products/:productId", async (req, res) => {
+        //     const id = req.params.productId;
+        //     const query = { _id: ObjectId(id) };
+        //     const options = { upsert: true };
+        //     const Data = req.body;
+        //     const updatedProduct = await productCollection.updateOne(query, Data, options);
+        //     res.send(updatedProduct);
+        // })
+
+
     }
     finally {
         // await client.close();
