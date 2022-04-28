@@ -57,7 +57,7 @@ async function run() {
         //     res.send(updatedProduct);
         // })
         app.get('/hero', (req, res) => {
-            req.res('Hero meets Heroku')
+            res.send('Heroku is in a meeting with hero')
         })
 
 
