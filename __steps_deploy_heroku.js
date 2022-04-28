@@ -12,4 +12,19 @@
  * 1.heroku create
  * 2.make sure you have done:git add .>git commit -m"">git push
  * 3.git push heroku main
+ * 4.go to heroku dashboard>current project>settings>reveals config vars
+ * 5.copy paste config vars from .env file
+ * 6.make sure you have enabled all ip adress in your mongodb access settings
+ * -------------------------------
+ * Update server with new changes
+ * -------------------------------
+ * 1.make changes
+ * 2.make sure you have done:git add .>git commit -m"">git push
+ * 3.git push heroku main
+ * ...........................................
+ * connect to client with heroku
+ * ......................................
+ * 1.replace all loaclhost by heroku link
+ * 2.npm run build
+ * 3.firebase deploy
  */
