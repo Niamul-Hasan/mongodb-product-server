@@ -13,9 +13,6 @@ app.get('/', (req, res) => {
     res.send('Heroku is running')
 })
 
-app.get('/hero', (req, res) => {
-    req.res('Hero meets Heroku')
-})
 
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.vqrww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
@@ -59,6 +56,10 @@ async function run() {
         //     const updatedProduct = await productCollection.updateOne(query, Data, options);
         //     res.send(updatedProduct);
         // })
+        app.get('/hero', (req, res) => {
+            req.res('Hero meets Heroku')
+        })
+
 
 
     }
